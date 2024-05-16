@@ -1,0 +1,5 @@
+indexSuccess:
+  stylesheets: [jobs.css, pico.min.css]
+ 
+showSuccess:
+  stylesheets: [job.css, pico.min.css]
