@@ -1,6 +1,6 @@
 <h1>Jobeet jobs List</h1>
 <div id="jobs">
-  <?php foreach($categories as $category): ?>
+  <?php foreach ($categories as $category) : ?>
     <div class="category_<?php echo Jobeet::slugify($category->getName()) ?>">
       <div class="category">
         <div class="feed">
@@ -11,7 +11,8 @@
     </div>
 
     <table class="jobs">
-      <?php foreach ($category->getActiveJobs() as $i => $job) : ?>
+      <?php $max = sfConfig::get('app_max_jobs_on_homepage') ?>
+      <?php foreach ($category->getActiveJobs($max) as $i => $job) : ?>
         <tr class="<?php echo fmod($i, 2) ? 'even' : 'odd' ?>">
           <td class="location">
             <?php echo $job->getLocation() ?></td>
@@ -23,5 +24,5 @@
         </tr>
       <?php endforeach ?>
     </table>
-  </div>
+</div>
 <?php endforeach ?>

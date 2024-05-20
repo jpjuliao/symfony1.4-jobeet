@@ -16,7 +16,7 @@ class JobeetJob extends BaseJobeetJob
   {
     if ($this->isNew() && !$this->getExpiresAt()) {
       $now = $this->getCreatedAt()
-        ? $this->getDateTimeObject('expires_at')->format('U')
+        ? $this->getDateTimeObject('created_at')->format('U')
         : time();
 
       $this->setExpiresAt(
