@@ -59,6 +59,10 @@ JobeetAffiliate:
 JobeetCategory:
   connection: doctrine
   tableName: jobeet_category
+  actAs:
+    Timestampable: ~
+    Sluggable:
+      fields: [name]
   columns:
     id:
       type: integer(8)
