@@ -5,3 +5,13 @@ all:
       dsn: 'mysql:host=jobeet-db;port=3306;dbname=jobeet'
       username: jobeet
       password: jobeet
+test:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=jobeet-db;port=3306;dbname=jobeet_test'
+      username: jobeet
+      password: jobeet
+dev:
+  doctrine:
+    class: sfDoctrineDatabase
