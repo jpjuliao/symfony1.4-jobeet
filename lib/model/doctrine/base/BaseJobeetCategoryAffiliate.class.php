@@ -12,19 +12,19 @@ Doctrine_Manager::getInstance()->bindComponent('JobeetCategoryAffiliate', 'doctr
  * @property JobeetAffiliate $JobeetAffiliate
  * @property JobeetCategory $JobeetCategory
  * 
- * @method integer                 getCategoryId()      Returns the current record's "category_id" value
- * @method integer                 getAffiliateId()     Returns the current record's "affiliate_id" value
- * @method JobeetAffiliate         getJobeetAffiliate() Returns the current record's "JobeetAffiliate" value
- * @method JobeetCategory          getJobeetCategory()  Returns the current record's "JobeetCategory" value
- * @method JobeetCategoryAffiliate setCategoryId()      Sets the current record's "category_id" value
- * @method JobeetCategoryAffiliate setAffiliateId()     Sets the current record's "affiliate_id" value
- * @method JobeetCategoryAffiliate setJobeetAffiliate() Sets the current record's "JobeetAffiliate" value
- * @method JobeetCategoryAffiliate setJobeetCategory()  Sets the current record's "JobeetCategory" value
+ * @method integer                 get()                Returns the current record's "category_id" value
+ * @method integer                 get()                Returns the current record's "affiliate_id" value
+ * @method JobeetAffiliate         get()                Returns the current record's "JobeetAffiliate" value
+ * @method JobeetCategory          get()                Returns the current record's "JobeetCategory" value
+ * @method JobeetCategoryAffiliate set()                Sets the current record's "category_id" value
+ * @method JobeetCategoryAffiliate set()                Sets the current record's "affiliate_id" value
+ * @method JobeetCategoryAffiliate set()                Sets the current record's "JobeetAffiliate" value
+ * @method JobeetCategoryAffiliate set()                Sets the current record's "JobeetCategory" value
  * 
  * @package    jobeet
  * @subpackage model
  * @author     Your name here
- * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
+ * @version    SVN: $Id: Builder.php 6820 2009-11-30 17:27:49Z jwage $
  */
 abstract class BaseJobeetCategoryAffiliate extends sfDoctrineRecord
 {
@@ -37,7 +37,7 @@ abstract class BaseJobeetCategoryAffiliate extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => true,
              'autoincrement' => false,
-             'length' => 8,
+             'length' => '8',
              ));
         $this->hasColumn('affiliate_id', 'integer', 8, array(
              'type' => 'integer',
@@ -45,7 +45,7 @@ abstract class BaseJobeetCategoryAffiliate extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => true,
              'autoincrement' => false,
-             'length' => 8,
+             'length' => '8',
              ));
     }
 

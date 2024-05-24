@@ -14,23 +14,23 @@ Doctrine_Manager::getInstance()->bindComponent('JobeetCategory', 'doctrine');
  * @property Doctrine_Collection $JobeetCategoryAffiliate
  * @property Doctrine_Collection $JobeetJob
  * 
- * @method integer             getId()                      Returns the current record's "id" value
- * @method string              getName()                    Returns the current record's "name" value
- * @method timestamp           getCreatedAt()               Returns the current record's "created_at" value
- * @method timestamp           getUpdatedAt()               Returns the current record's "updated_at" value
- * @method Doctrine_Collection getJobeetCategoryAffiliate() Returns the current record's "JobeetCategoryAffiliate" collection
- * @method Doctrine_Collection getJobeetJob()               Returns the current record's "JobeetJob" collection
- * @method JobeetCategory      setId()                      Sets the current record's "id" value
- * @method JobeetCategory      setName()                    Sets the current record's "name" value
- * @method JobeetCategory      setCreatedAt()               Sets the current record's "created_at" value
- * @method JobeetCategory      setUpdatedAt()               Sets the current record's "updated_at" value
- * @method JobeetCategory      setJobeetCategoryAffiliate() Sets the current record's "JobeetCategoryAffiliate" collection
- * @method JobeetCategory      setJobeetJob()               Sets the current record's "JobeetJob" collection
+ * @method integer             get()                        Returns the current record's "id" value
+ * @method string              get()                        Returns the current record's "name" value
+ * @method timestamp           get()                        Returns the current record's "created_at" value
+ * @method timestamp           get()                        Returns the current record's "updated_at" value
+ * @method Doctrine_Collection get()                        Returns the current record's "JobeetCategoryAffiliate" collection
+ * @method Doctrine_Collection get()                        Returns the current record's "JobeetJob" collection
+ * @method JobeetCategory      set()                        Sets the current record's "id" value
+ * @method JobeetCategory      set()                        Sets the current record's "name" value
+ * @method JobeetCategory      set()                        Sets the current record's "created_at" value
+ * @method JobeetCategory      set()                        Sets the current record's "updated_at" value
+ * @method JobeetCategory      set()                        Sets the current record's "JobeetCategoryAffiliate" collection
+ * @method JobeetCategory      set()                        Sets the current record's "JobeetJob" collection
  * 
  * @package    jobeet
  * @subpackage model
  * @author     Your name here
- * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
+ * @version    SVN: $Id: Builder.php 6820 2009-11-30 17:27:49Z jwage $
  */
 abstract class BaseJobeetCategory extends sfDoctrineRecord
 {
@@ -43,7 +43,7 @@ abstract class BaseJobeetCategory extends sfDoctrineRecord
              'unsigned' => false,
              'primary' => true,
              'autoincrement' => true,
-             'length' => 8,
+             'length' => '8',
              ));
         $this->hasColumn('name', 'string', 255, array(
              'type' => 'string',
@@ -52,7 +52,7 @@ abstract class BaseJobeetCategory extends sfDoctrineRecord
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 255,
+             'length' => '255',
              ));
         $this->hasColumn('created_at', 'timestamp', 25, array(
              'type' => 'timestamp',
@@ -61,7 +61,7 @@ abstract class BaseJobeetCategory extends sfDoctrineRecord
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
+             'length' => '25',
              ));
         $this->hasColumn('updated_at', 'timestamp', 25, array(
              'type' => 'timestamp',
@@ -70,7 +70,7 @@ abstract class BaseJobeetCategory extends sfDoctrineRecord
              'primary' => false,
              'notnull' => true,
              'autoincrement' => false,
-             'length' => 25,
+             'length' => '25',
              ));
     }
 
