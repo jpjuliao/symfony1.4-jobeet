@@ -1,0 +1,8 @@
+sfGuardUser:
+  admin:
+    email_address: juan.juliao@imagineapps.co
+    username: admin
+    password: admin
+    first_name: JP
+    last_name: Juliao
+    is_super_admin: true

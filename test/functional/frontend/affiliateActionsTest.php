@@ -1,28 +1,23 @@
 <?php
-
 include(dirname(__FILE__).'/../../bootstrap/functional.php');
  
 $browser = new JobeetTestFunctional(new sfBrowser());
 $browser->loadData();
  
 $browser->
-  info('1 - An affiliate can create an account')->
- 
-  get('/affiliate/new')->
-  click('Submit', array('jobeet_affiliate' => array(
-    'url'                            => 'http://www.example.com/',
-    'email'                          => 'foo@example.com',
-    'jobeet_categories_list'         => array(Doctrine_Core::getTable('JobeetCategory')->findOneBySlug('programming')->getId()),
-  )))->
+  info('1 - Authentication')->
+  get('/affiliate')->
+  click('Signin', array(
+    'signin' => array('username' => 'admin', 'password' => 'admin'),
+    array('_with_csrf' => true)
+  ))->
   with('response')->isRedirected()->
   followRedirect()->
-  with('response')->checkElement('#content h1', 'Your affiliate account has been created')->
  
-  info('2 - An affiliate must at least select one category')->
- 
-  get('/affiliate/new')->
-  click('Submit', array('jobeet_affiliate' => array(
-    'url'   => 'http://www.example.com/',
-    'email' => 'foo@example.com',
-  )))->
-  with('form')->isError('jobeet_categories_list')
+  info('2 - When validating an affiliate, an email must be sent with its token')->
+  click('Activate', array(), array('position' => 1))->
+  with('mailer')->begin()->
+    checkHeader('Subject', '/Jobeet affiliate token/')->
+    checkBody('/Your token is symfony/')->
+  end()
+;
