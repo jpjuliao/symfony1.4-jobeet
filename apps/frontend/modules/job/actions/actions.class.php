@@ -19,7 +19,7 @@ class jobActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
     $this->job = $this->getRoute()->getObject();
- 
+
     $this->getUser()->addJobToHistory($this->job);
   }
 
@@ -99,5 +99,13 @@ class jobActions extends sfActions
 
       $this->redirect('job_show', $job);
     }
+  }
+
+
+  public function executeSearch(sfWebRequest $request)
+  {
+    $this->forwardUnless($query = $request->getParameter('query'), 'job', 'index');
+
+    $this->jobs = Doctrine_Core::getTable('JobeetJob')->getForLuceneQuery($query);
   }
 }

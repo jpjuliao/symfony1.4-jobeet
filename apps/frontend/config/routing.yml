@@ -2,16 +2,20 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 affiliate:
-  class:   sfDoctrineRouteCollection
+  class: sfDoctrineRouteCollection
   options:
     model: JobeetAffiliate
     actions: [new, create]
     object_actions: { wait: get }
 
+job_search:
+  url: /search
+  param: { module: job, action: search }
+
 api_jobs:
-  url:     /api/:token/jobs.:sf_format
-  class:   sfDoctrineRoute
-  param:   { module: api, action: list }
+  url: /api/:token/jobs.:sf_format
+  class: sfDoctrineRoute
+  param: { module: api, action: list }
   options: { model: JobeetJob, type: list, method: getForToken }
   requirements:
     sf_format: (?:xml|json|yaml)
@@ -36,9 +40,9 @@ job_show_user:
     sf_method: [get]
 
 category:
-  url:     /category/:slug.:sf_format
-  class:   sfDoctrineRoute
-  param:   { module: category, action: show, sf_format: html }
+  url: /category/:slug.:sf_format
+  class: sfDoctrineRoute
+  param: { module: category, action: show, sf_format: html }
   options: { model: JobeetCategory, type: object }
   requirements:
     sf_format: (?:html|atom)
